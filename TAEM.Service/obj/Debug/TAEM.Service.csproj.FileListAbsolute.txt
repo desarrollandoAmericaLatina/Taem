@@ -1,0 +1,12 @@
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Service.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Service.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\AutoMapper.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Business.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Business.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\bin\Debug\TAEM.Domain.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\obj\Debug\TAEM.Service.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\obj\Debug\TAEM.Service.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\obj\Debug\Decl\TAEM.Service.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Service\obj\Debug\Decl\TAEM.Service.pdb

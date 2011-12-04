@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+	<class name="Necesidad" table="Necesidad">
+    <id name="ID" type="System.Int32" column="IDNecesidad" unsaved-value="0">
+    </id>
+    <many-to-one name="Proyecto" column="IDProyecto"/>
+    <property name="Nombre" type="System.String" length="150"/>
+    <property name="Descripcion" type="System.String"/>
+    <property name="MasInformacionUrl" type="System.String" length="1024"/>
+    <property name="ImagenUrl" type="System.String" length="1024"/>
+    <property name="EstadoNecesidad" type="TAEM.Domain.EstadoNecesidad, TAEM.Domain" />
+    <bag name="DonacionesNecesidad" cascade="all">
+      <key column="IDNecesidad"/>
+      <one-to-many class="DonacionNecesidad"/>
+    </bag>
+	</class>
+</hibernate-mapping>

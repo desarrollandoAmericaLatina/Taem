@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain.GeoPolitica" assembly="TAEM.Domain">
+	<class name="Region" table="Region">
+		<id name="ID" type="System.Int32" column="IDRegion" unsaved-value="0">
+		</id>
+		<property name="Nombre" type="System.String" length="100"/>
+    <bag name="Provincias" cascade="all-delete-orphan">
+      <key column="IDRegion"/>
+      <one-to-many class="Provincia"/>
+    </bag>
+	</class>
+</hibernate-mapping>

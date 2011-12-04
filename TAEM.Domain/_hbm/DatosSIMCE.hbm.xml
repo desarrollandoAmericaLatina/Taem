@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="Carga"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="DatosSIMCE" table="DatosSIMCE">
+    <id name="ID" column="ID" type="System.Int32" unsaved-value="0">
+    </id>
+    <property name="RBD" column="RBD" type="System.Int32" />
+    <property name="AlumLect" column="AlumLect" type="System.Int32" />
+    <property name="PromLect" column="PromLect" type="System.Decimal" />
+    <property name="AlumMat" column="AlumMat" type="System.Int32" />
+    <property name="PromMat" column="PromMat" type="System.Decimal" />
+    <property name="AlumSoc" column="AlumSoc" type="System.Int32" />
+    <property name="PromSoc" column="PromSoc" type="System.Decimal" />
+    <property name="AlumNat" column="AlumNat" type="System.Int32" />
+    <property name="PromNat" column="PromNat" type="System.Decimal" />
+    <property name="AlumIng" column="AlumIng" type="System.Int32" />
+    <property name="PromIngTotal" column="PromIngTotal" type="System.Decimal" />
+    <property name="Ano" column="Ano" type="System.Int32" />
+    <property name="Curso" column="Curso" type="System.Int32"></property>
+  </class>
+</hibernate-mapping>

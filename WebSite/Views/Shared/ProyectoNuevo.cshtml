@@ -1,0 +1,146 @@
+﻿@using TAEM.Business.Properties;
+@model WebSite.Models.CrearModel
+<form id="frmNuevaNecesidad" name="frmNuevaNecesidad">
+<div id="dvProyectoDet">
+    <table style="margin: 8px 0px;">
+        <tr>
+            <td>
+                Establecimiento:
+            </td>
+            <td>
+                <b>@Model.Local</b>
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;">
+                <div class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                    <h3>
+                        Datos</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Resources.Nombre
+                            </td>
+                            <td>
+                                <input type="text" id="Nombre" name="Nombre" style="width: 300px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Resources.Descripcion
+                            </td>
+                            <td>
+                                <textarea id="Descripcion" name="Descripcion" cols="40" rows="5" style="width: 300px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Resources.FechaDeseable
+                            </td>
+                            <td>
+                                <input type="date" id="Fechadeseable" name="Fechadeseable" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Resources.UrlImagen
+                            </td>
+                            <td>
+                                <input type="text" id="UrlImagen" name="UrlImagen" style="width: 302px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Resources.UrlVideo
+                            </td>
+                            <td>
+                                <input type="text" id="VideoUrl" name="VideoUrl" style="width: 302px;" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td style="width: 50%; vertical-align: top;">
+                <div class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                    <h3>
+                        Necesidades</h3>
+                </div>
+                <table id="tblListaNecesidades">
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns" style="text-align: center; margin: 6px 0px;">
+                    <button id="btnNecesidad" type="button">
+                        Agregar necesidad</button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="btns" style="text-align: center; margin: 6px 0px;">
+                    <button id="btnGuardar" type="button">
+                        Guardar</button></div>
+            </td>
+        </tr>
+    </table>
+</div>
+</form>
+
+
+<form id="frmNuevaNecesidadDet" name="frmNuevaNecesidadDet">
+<div id="dvNecesidadDet" style="display: none;">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    @Resources.Nombre
+                </td>
+                <td>
+                    <input type="text" id="NombreNecesidad" name="NombreNecesidad" style="width: 300px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Resources.Descripcion
+                </td>
+                <td>
+                    <textarea id="DescripcionNecesidad" name="DescripcionNecesidad" cols="40" rows="5"
+                        style="width: 300px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Resources.MasInformacionUrl
+                </td>
+                <td>
+                    <input type="text" id="masInfoNecesidad" name="masInfoNecesidad" style="width: 302px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Resources.UrlImagen
+                </td>
+                <td>
+                    <input type="text" id="UrlImagenNecesidad" name="UrlImagenNecesidad" style="width: 302px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="spanErrorModel">dsad</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</form>

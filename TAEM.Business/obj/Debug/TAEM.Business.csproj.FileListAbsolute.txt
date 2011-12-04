@@ -1,0 +1,12 @@
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\bin\Debug\TAEM.Business.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\bin\Debug\TAEM.Business.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\bin\Debug\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\bin\Debug\TAEM.Domain.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\TAEM.Business.Properties.Resources.resources
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\TAEM.Business.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\TAEM.Business.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\Decl\TAEM.Business.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Business\obj\Debug\Decl\TAEM.Business.pdb

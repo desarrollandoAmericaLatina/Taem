@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="Historia" table="Historia">
+    <id name="ID" column="IDHistoria" type="System.Int32" unsaved-value="0">
+    </id>
+    <property name="Titulo" column="Titulo" type="System.String" length="255"/>
+    <property name="Descripcion" column="Descripcion" type="System.String" length="2048"/>
+    <property name="VideoUrl" column="VideoUrl" type="System.String" length="1024"/>
+    <property name="ImagenUrl" column="ImagenUrl" type="System.String" length="1024"/>
+    <many-to-one name="Proyecto" column="IDProyecto"/>
+  </class>
+</hibernate-mapping>

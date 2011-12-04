@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+	<class name="Proyecto" table="Proyecto">
+    <id name="ID" type="System.Int32" column="IDProyecto" unsaved-value="0">
+    </id>
+    <bag name="Necesidades" cascade="all-delete-orphan">
+      <key column="IDProyecto"/>
+      <one-to-many class="Necesidad"/>
+    </bag>
+    <many-to-one name="Lugar" column="IDLugar" class="TAEM.Domain.Lugar" />
+    <many-to-one name="PersonaResponsable" column="IDPersonaResponsable" class="TAEM.Domain.Usuario" />
+    <property name="Nombre" type="System.String" length="150"/>
+    <property name="Descripcion" type="System.String"/>
+    <property name="FechaDeseable" type="System.DateTime"/>
+    <property name="FechaIngreso" type="System.DateTime"/>
+    <property name="FechaUltimaActualizacion" type="System.DateTime"/>
+    <property name="ImagenUrl" type="System.String" length="1024"/>
+    <property name="VideoUrl" type="System.String" length="1024"/>
+    <property name="Finalizado" type="bool"/>
+    
+	</class>
+</hibernate-mapping>

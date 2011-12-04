@@ -1,0 +1,124 @@
+﻿@model TAEM.WebSite.Models.Establecimientos.GraficoModel
+@{
+    ViewBag.Title = "Evaluación Docente";
+}
+<h2>Evaluación Docente</h2>
+<div id="grafico" style="height: 300px; width: 550px;"></div>
+<script type="text/javascript">
+    (function() {
+        function dibujar(control, obj, titulo) {
+            if(obj[0]) obj = obj[0];
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dimensión');
+            data.addColumn('number', 'Resultados');
+            data.addRows(8);
+            data.setValue(0, 0, 'A');
+            data.setValue(0, 1, obj.A);
+            data.setValue(1, 0, 'B');
+            data.setValue(1, 1, obj.B);
+            data.setValue(2, 0, 'C');
+            data.setValue(2, 1, obj.C);
+            data.setValue(3, 0, 'D');
+            data.setValue(3, 1, obj.D);
+            data.setValue(4, 0, 'E');
+            data.setValue(4, 1, obj.E);
+            data.setValue(5, 0, 'F');
+            data.setValue(5, 1, obj.F);
+            data.setValue(6, 0, 'G');
+            data.setValue(6, 1, obj.G);
+            data.setValue(7, 0, 'H');
+            data.setValue(7, 1, obj.H);
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('grafico'));
+            chart.draw(data, {width: 450, height: 300, title: 'Evaluación Docente ' + obj.Ano});
+        }
+        
+        
+        dibujar('grafico', @Html.Raw(@Model.EvalDocente), 'Evaluación Docente');
+        
+    })();
+</script>
+
+<div class="" id="explicacion-dimensiones-contenedor" style="overflow:auto;height:150px">
+	<div id="explicacion-dimension-A" class="explicacion-dimension">
+		<h2>Dimensión A</h2>
+		<p>Esta dimensión evalúa el diseño y la implementación de una unidad pedagógica presentada por el docente, así como las clases que la componen. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Formulación de objetivos: Capacidad para presentar una unidad pedagógica en que los objetivos de las clases son coherentes con las actividades desarrolladas en cada una de ellas.</li>		
+			<li>Secuencia de clases: capacidad para implementar una unidad pedagógica estructurada en una clara secuencia de clases, orientada al logro de los objetivos de aprendizaje propuesto en la unidad.</li>
+			<li>Análisis de la unidad implementada: capacidad para analizar aspectos fundamentales del diseño de una unidad pedagógica y relacionarlos de forma clara y concreta con el trabajo pedagógico realizado.</li>					
+		</ul>
+	</div>
+	<div id="explicacion-dimension-B" class="explicacion-dimension">
+		<h2>Dimensión B</h2>
+		<p>Esta dimensión evalúa la capacidad del docente para diseñar y analizar actividades de clase. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Relación entre actividades y objetivo: capacidad para abordar los objetivos de la clase a través de las actividades y recursos de aprendizaje implementados.</li>		
+			<li>Análisis de una clase: capacidad para analizar la calidad de una clase en función del aprendizaje y de la motivación por aprender que muestran los alumnos.</li>
+			<li>Desarrollo de las fortalezas de los alumnos: capacidad para proponer formas concretas y específicas para aprovechar las fortalezas académicas de los alumnos en beneficio del aprendizaje del subsector.</li>
+			<li>Variedad de estrategias didácticas: capacidad para abordar las dificultades de los alumnos, relacionadas con la comprensión de los contenidos, a través de estrategias didácticas variadas.</li>
+			<li>Clima para el aprendizaje: capacidad para dar cuenta de la forma en que genera un ambiente propicio para el aprendizaje.</li>				
+		</ul>
+	</div>
+	<div id="explicacion-dimension-C" class="explicacion-dimension">
+		<h2>Dimensión C</h2>
+		<p>Esta dimensión evalúa las habilidades del docente relacionadas con la evaluación de término de la unidad presentada en el portafolio. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Adecuación de los ítems a los aprendizajes declarados: capacidad para diseñar una evaluación de término que permita conocer con exactitud el nivel de aprendizaje de los alumnos a los que se aplica.</li>		
+			<li>Adecuación de la evaluación a los objetivos de aprendizajes de la unidad: capacidad para construir una evaluación de término clara y directamente relacionada con los objetivos de aprendizaje de la unidad.</li>
+			<li>Calidad de la retroalimentación a los estudiantes: capacidad para elaborar un informe de retroalimentación de utilidad para mejorar el desempeño del alumno.</li>
+			<li>Calidad de las preguntas o instrucciones del instrumento de evaluación.</li>
+			<li>Capacidad de formular las preguntas o instrucciones de evaluación de manera clara y precisa.</li>				
+		</ul>
+	</div>
+	<div id="explicacion-dimension-D" class="explicacion-dimension">
+		<h2>Dimensión D</h2>
+		<p>Esta dimensión evalúa la calidad del análisis del docente en torno a la evaluación de término de la unidad presentada. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Adecuación de la evaluación al diseño y aplicación de la unidad implementada: Capacidad del docente para diseñar una situación de evaluación que considere los contenidos y habilidades a desarrollar, las características del grupo de alumnos a los que aplicará la evaluación y las actividades de clase que conforman la unidad.</li>		
+			<li>Atribución de resultados de aprendizaje: Capacidad del docente para establecer vínculos específicos entre sus decisiones pedagógicas y los resultados de aprendizajes de sus alumnos.</li>
+			<li>Análisis de la evaluación: Capacidad del docente para argumentar pedagógicamente sus decisiones referidas a mantener o modificar una evaluación aplicada.</li>							
+		</ul>
+	</div>
+	<div id="explicacion-dimension-E" class="explicacion-dimension">
+		<h2>Dimensión E</h2>
+		<p>Esta dimensión evalúa el análisis que hace el docente de su práctica pedagógica en general. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Riqueza pedagógica en el diseño de las unidades de aprendizaje: Capacidad del docente para integrar en sus actividades de clases, características propias del entorno sociocultural de sus alumnos y la naturaleza de los objetivos a tratar, de manera tal de potenciar el aprendizaje en sus subsector.</li>		
+			<li>Calidad Retroalimentación de capacidad para obtener información acerca del nivel de aprendizaje de sus alumnos durante las clases que realiza, y hacer un uso provechoso de esta información.</li>
+			<li>Detección y satisfacción de las propias necesidades de aprendizaje: Capacidad para obtener información sobre las fortalezas y debilidades de su desempeño como docente, a partir de distintas fuentes y de diseñar estrategias que contribuyan directamente al mejoramiento de las necesidades detectadas.</li>
+			<li>Promoción de la formación de valores: Capacidad para favorecer la formación de valores en los alumnos, enmarcados en el trabajo de contenidos propios del subsector.</li>
+			<li>Criterios de calidad de un texto escolar: Capacidad de reconocer las características que determinan la calidad de un texto escolar para apoyar el aprendizaje de los estudiantes en el subsector que enseña.</li>				
+		</ul>
+	</div>
+	<div id="explicacion-dimension-F" class="explicacion-dimension">
+		<h2>Dimensión F</h2>
+		<p>Esta dimensión evalúa la calidad del ambiente de trabajo en la clase que presenta el docente como parte de su portafolio. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Focalización de los alumnos en las actividades propuestas: Capacidad del docente para lograr que sus estudiantes se mantengan focalizados en las actividades que les propone, manteniéndose alerta a sus requerimientos o demandas.</li>		
+			<li>Manejo del grupo curso: Capacidad del docente para lograr que al interior del aula los alumnos mantengan normas de convivencia que les permita trabajar durante toda la clase.</li>
+			<li>Promoción de la participación de todos los alumnos: Capacidad del docente para ofrecer posibilidades de participación a todos sus alumnos por igual, promoviendo que los mismos alumnos puedan favorecer el aprendizaje de sus compañeros.</li>							
+		</ul>
+	</div>
+	<div id="explicacion-dimension-G" class="explicacion-dimension">
+		<h2>Dimensión G</h2>
+		<p>Esta dimensión evalúa la calidad de la estructura de la clase filmada que presenta el docente. Su resultado integran los siguientes aspectos:</p>
+		<ul>
+			<li>Calidad de la estructura de la clase: Capacidad del docente para desarrollar una clase con una clara estructura que favorezca el aprendizaje de los alumnos, en la cual se pueda apreciar un claro inicio, desarrollo y cierre.</li>		
+			<li>Utilización del tiempo estructural: Capacidad para desarrollar una clase en la cual el uso del tiempo instruccional este adecuadamente empleado en las actividades de enseñanza - aprendizaje implementadas.</li>
+			<li>Contribución de las actividades del logro de los objetivos de la clase: Capacidad del docente para desarrollar actividades que contribuyen directamente al logro de los objetivos de aprendizaje planteados para la clase.</li>							
+		</ul>
+	</div>
+	<div id="explicacion-dimension-H" class="explicacion-dimension">
+		<h2>Dimensión H</h2>
+		<p>Esta dimensión evalúa la calidad de la interacción que mantiene el docente con sus alumnos en función del aprendizaje. Su resultado integra los siguientes aspectos:</p>
+		<ul>
+			<li>Calidad de las explicaciones: Capacidad del docente para desarrollar explicaciones o enseñar ejecuciones y/o procedimientos de tal modo de favorecer al máximo su comprensión, recurriendo a los conocimientos de los alumnos o bien, dando cuenta de sus razones o fundamentos.</li>		
+			<li>Calidad de las preguntas que formula el profesor e interacción a partir de ellas: Capacidad para fomentar y utilizar las intervenciones de los alumnos, de modo tal que contribuyan a desarrollar su capacidad para pensar.</li>
+			<li>Acompañamiento de las actividades en función del aprendizaje: Capacidad para realizar estrategias de acompañamiento o monitoreo de las actividades de clase, de modo de favorecer el aprendizaje de los alumnos.</li>
+			<li>Su expresión oral en inglés da cuenta de uso adecuado de vocabulario y de estructuras gramaticales, pronunciación clara y correcta, así como, fluidez en varios momentos de interacción con los alumnos durante la clase filmada(indicador solo evaluado para el subsector de Inglés).</li>	
+		</ul>
+	</div>
+</div>
+

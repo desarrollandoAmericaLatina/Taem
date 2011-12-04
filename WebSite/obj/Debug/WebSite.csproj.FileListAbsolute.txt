@@ -1,0 +1,14 @@
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\WebSite.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\WebSite.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Business.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Service.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\AutoMapper.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Business.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Domain.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\bin\TAEM.Service.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\obj\Debug\WebSite.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\obj\Debug\WebSite.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\obj\Debug\Decl\WebSite.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\WebSite\obj\Debug\Decl\WebSite.pdb

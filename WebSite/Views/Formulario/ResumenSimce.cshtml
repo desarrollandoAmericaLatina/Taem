@@ -1,0 +1,41 @@
+﻿@model WebSite.Models.SIMCESModel
+@{
+    ViewBag.Title = "ResumenSince";
+    var lista = Json.Encode(Model.SIMCEColegio);
+    var lista2 = Json.Encode(Model.SIMCEResto);
+}
+
+<h2>Resumen SIMCE</h2>
+<div id="simce" style="height: 300px; width: 500px;"></div>
+<div id="simce2" style="height: 300px; width: 500px;"></div>
+<script type="text/javascript">
+    (function() {
+        function dibujar(control, lista, titulo) {
+            var dataSimce = new google.visualization.DataTable();
+            dataSimce.addColumn('string', 'Año');
+            dataSimce.addColumn('number', 'Lenguaje');
+            dataSimce.addColumn('number', 'Matematicas');
+            dataSimce.addColumn('number', 'Sociedad');
+            dataSimce.addColumn('number', 'Naturaleza');
+            dataSimce.addColumn('number', 'Ingles');
+            dataSimce.addRows(lista.length);
+
+            var item;
+            for (var i = 0; i < lista.length;  i++) {
+                item = lista[i];
+                dataSimce.setValue(i, 0, ""+item.Ano);
+                dataSimce.setValue(i, 1, item.PromLect);
+                dataSimce.setValue(i, 2, item.PromMat);
+                dataSimce.setValue(i, 3, item.PromSoc);
+                dataSimce.setValue(i, 4, item.PromNat);
+                dataSimce.setValue(i, 5, item.PromIngTotal);
+            }
+
+            var chart = new google.visualization.LineChart(document.getElementById(control));
+            chart.draw(dataSimce, { width: 700, height: 300, title: titulo });
+        }
+        
+        dibujar('simce', @Html.Raw(lista), 'Promedio SIMCE Colegio');
+        dibujar('simce2', @Html.Raw(lista2), 'Promedio SIMCE Total Mapa');
+    })();
+</script>

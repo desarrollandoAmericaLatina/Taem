@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+	<class name="DonacionNecesidad" table="DonacionNecesidad">
+    <id name="IDDonacionNecesidad" type="System.Int32" column="IDDonacionNecesidad" unsaved-value="0">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="Necesidad" class="TAEM.Domain.Necesidad" column="IDNecesidad"/>
+    <many-to-one name="Donacion" class="TAEM.Domain.Donacion" column="IDDonacion"/>
+    <property name="FechaIngresoBeneficiario" type="System.DateTime"/>
+    <property name="DetalleBeneficiarion" type="System.String"/>
+    <property name="RecibidoBeneficiario" type="System.Boolean"/>
+    <property name="FechaIngresoDonante" type="System.DateTime"/>
+    <property name="DetalleDonante" type="System.String"/>
+    <property name="EntregadoPorDonante" type="System.Boolean"/>
+  </class>
+</hibernate-mapping>

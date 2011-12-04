@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="Matricula" table="Matriculas">
+    <id name="ID" type="System.Int32" column="ID" unsaved-value="0">
+    </id>
+    <property name="RBD" type="System.Int32" />
+    <property name="TotalHombres" type="System.Int32" />
+    <property name="TotalMujeres" type="System.Int32" />
+    <property name="Total" type="System.Int32" />
+    <property name="Ano" type="System.Int32" column="Año"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="UsuarioLugar" table="UsuarioLugar">
+    <id name="ID" type="System.Int32" column="IDUsuarioLugar" unsaved-value="0">
+    </id>
+    <many-to-one name="Usuario" column="IDUsuario" class="TAEM.Domain.Usuario"/>
+    <many-to-one name="Lugar" column="IDLugar" class="TAEM.Domain.Lugar"/>
+    <property name="EsAdministrador" type="System.Boolean"/>
+  </class>
+</hibernate-mapping>

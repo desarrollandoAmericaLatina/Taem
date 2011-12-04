@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain.GeoPolitica" assembly="TAEM.Domain">
+	<class name="Comuna" table="Comuna">
+		<id name="ID" type="System.Int32" column="IDComuna" unsaved-value="0">
+		</id>
+		<property name="Nombre" type="System.String" length="100"/>
+    <many-to-one name="Provincia" column="IDProvincia"/>
+	</class>
+</hibernate-mapping>

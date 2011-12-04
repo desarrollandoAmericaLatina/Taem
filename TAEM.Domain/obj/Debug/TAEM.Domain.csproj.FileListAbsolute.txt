@@ -1,0 +1,7 @@
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\bin\Debug\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\bin\Debug\TAEM.Domain.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\obj\Debug\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\obj\Debug\TAEM.Domain.pdb
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\obj\Debug\Decl\TAEM.Domain.dll
+C:\Users\ngcbassman\Documents\Visual Studio 2010\Projects\Taem\TAEM.Domain\obj\Debug\Decl\TAEM.Domain.pdb

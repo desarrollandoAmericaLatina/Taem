@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="EvaluacionDocente" table="EvaluacionDocente">
+    <id name="ID" type="System.Int32" column="ID" unsaved-value="0">
+    </id>
+    <property name="RBD" type="System.Int32" />
+    
+    <property name="A" type="System.Double" />
+    <property name="B" type="System.Double" />
+    <property name="C" type="System.Double" />
+
+    <property name="D" type="System.Double" />
+    <property name="E" type="System.Double" />
+    <property name="F" type="System.Double" />
+
+    <property name="G" type="System.Double" />
+    <property name="H" type="System.Double" />
+    
+    <property name="Ano" type="System.Int32" column="Año"/>
+  </class>
+</hibernate-mapping>

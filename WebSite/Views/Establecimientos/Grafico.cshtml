@@ -1,0 +1,168 @@
+﻿@model TAEM.WebSite.Models.Establecimientos.GraficoModel
+@{Layout=null;}
+
+
+    
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gr&aacute;ficos Establecimiento @Model.NombreEstablecimiento</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+
+    (function() {
+        var items = @Html.Raw(Model.MatriculasJson);
+        var largo = items.length;
+
+    
+        google.setOnLoadCallback(dibujar);
+        function dibujar() {
+            //dibujarMatricula();
+            //dibujarRendimiento();
+            dibujarEvalDocente();
+        };
+
+        function dibujarMatricula() {
+            var dataMatricula = new google.visualization.DataTable();
+            dataMatricula.addColumn('string', 'Año');
+            dataMatricula.addColumn('number', 'Total Hombre');
+            dataMatricula.addColumn('number', 'Total Mujeres');
+            dataMatricula.addColumn('number', 'Total');
+            dataMatricula.addRows(largo);
+
+            var item;
+            for (var i = 0; i < largo;  i++) {
+                item = items[i];
+                dataMatricula.setValue(i, 0, ""+item.Ano);
+                dataMatricula.setValue(i, 1, item.TotalHombres);
+                dataMatricula.setValue(i, 2, item.TotalMujeres);
+                dataMatricula.setValue(i, 3, item.Total);
+            }
+
+            var chart = new google.visualization.LineChart(document.getElementById('matricula'));
+            chart.draw(dataMatricula, { width: 700, height: 300, title: 'Matrículas' });
+        }
+   
+        
+        function dibujarRendimiento() {
+            function initData(data, largo) {
+                data.addColumn('string', 'Año');
+                data.addColumn('number', 'Total Hombre');
+                data.addColumn('number', 'Total Mujeres');
+                data.addColumn('number', 'Total');
+                data.addRows(largo);
+            };
+
+            var items = @Html.Raw(Model.RendimientosJson);
+            var largo = items.length;
+
+            var dataRetirados = new google.visualization.DataTable();
+            var dataReprobados = new google.visualization.DataTable();
+            var dataAprobados = new google.visualization.DataTable();
+            var dataTotal = new google.visualization.DataTable();
+
+            initData(dataRetirados, largo);
+            initData(dataReprobados, largo);
+            initData(dataAprobados, largo);
+            
+            dataTotal.addColumn('string', 'Año');
+            dataTotal.addColumn('number', 'Total Aprobados');
+            dataTotal.addColumn('number', 'Total Reprobados');
+            dataTotal.addColumn('number', 'Total Retirados');
+            dataTotal.addRows(largo);
+
+
+            function fnRetirados(item, i) {
+                dataRetirados.setValue(i, 0, ""+item.Ano);
+                dataRetirados.setValue(i, 1, item.TotalHombresRetirados);
+                dataRetirados.setValue(i, 2, item.TotalMujeresRetiradas);
+                dataRetirados.setValue(i, 3, item.TotalRetirados);
+            }
+            function fnReprobados(item, i) {
+                dataReprobados.setValue(i, 0, ""+item.Ano);
+                dataReprobados.setValue(i, 1, item.TotalHombresReprobados);
+                dataReprobados.setValue(i, 2, item.TotalMujeresReprobadas);
+                dataReprobados.setValue(i, 3, item.TotalReprobados);
+            }
+            function fnAprobados(item, i) {
+                dataAprobados.setValue(i, 0, ""+item.Ano);
+                dataAprobados.setValue(i, 1, item.TotalHombresAprobados);
+                dataAprobados.setValue(i, 2, item.TotalMujeresAprobadas);
+                dataAprobados.setValue(i, 3, item.TotalAprobados);
+            }
+            function fnTotal(item, i) {
+                dataTotal.setValue(i, 0, ""+item.Ano);
+                dataTotal.setValue(i, 1, item.TotalAprobados);
+                dataTotal.setValue(i, 2, item.TotalReprobados);
+                dataTotal.setValue(i, 3, item.TotalRetirados);
+            }
+
+
+            var item;
+            for (var i = 0; i < largo;  i++) {
+                item = items[i];
+                fnRetirados(item, i);
+                fnReprobados(item, i);
+                fnAprobados(item, i);
+                fnTotal(item, i);
+            }
+
+            var chartAprobados = new google.visualization.LineChart(document.getElementById('alumnos_aprobados'));
+            var chartReprobados = new google.visualization.LineChart(document.getElementById('alumnos_reprobados'));
+            var chartRetirados = new google.visualization.LineChart(document.getElementById('alumnos_retirados'));
+            var chartTotal = new google.visualization.LineChart(document.getElementById('alumnos_rendimiento'));
+            chartRetirados.draw(dataRetirados, { width: 700, height: 300, title: 'Alumnos Retirados' });
+            chartReprobados.draw(dataReprobados, { width: 700, height: 300, title: 'Alumnos Reprobados' });
+            chartAprobados.draw(dataAprobados, { width: 700, height: 300, title: 'Alumnos Aprobados' });
+            chartTotal.draw(dataTotal, { width: 700, height: 300, title: 'Resumen Rendimiento', chartArea : { width: 450, left:100} });
+        }
+
+        function dibujarEvalDocente() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task');
+            data.addColumn('number', 'Hours per Day');
+            data.addRows(8);
+            data.setValue(0, 0, 'A');
+            data.setValue(0, 1, 2.49);
+            data.setValue(1, 0, 'B');
+            data.setValue(1, 1, 2.64);
+            data.setValue(2, 0, 'C');
+            data.setValue(2, 1, 2.30);
+            data.setValue(3, 0, 'D');
+            data.setValue(3, 1, 2.09);
+            data.setValue(4, 0, 'E');
+            data.setValue(4, 1, 2.40);
+            data.setValue(5, 0, 'F');
+            data.setValue(5, 1, 2.66);
+            data.setValue(6, 0, 'G');
+            data.setValue(6, 1, 2.09);
+            data.setValue(7, 0, 'H');
+            data.setValue(7, 1, 1.98);
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, {width: 450, height: 300, title: 'My Daily Activities'});
+        };
+    })();
+    </script>
+
+  </head>
+
+  <body>
+    <h1>Estad&iacute;sticas Establecimiento @Model.NombreEstablecimiento</h1>
+
+    <div id="chart_div"></div>
+
+    <div id="matricula"></div>
+    <div id="alumnos_retirados"></div>
+    <div id="alumnos_reprobados"></div>
+    <div id="alumnos_aprobados"></div>
+    <div id="alumnos_rendimiento"></div>
+
+    
+
+  </body>
+</html>
+@section Scripts{
+}

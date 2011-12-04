@@ -1,0 +1,169 @@
+﻿@model TAEM.WebSite.Models.FichaLugarModel
+@using TAEM.Domain
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    function mensajeDonacion(mensaje) {
+        $("#msgResultadoDonacion").text(mensaje);
+        $("#dialogResultadoDonacion").dialog("open");
+    }
+    $(function () {
+        $("#tabsFichaColegio").tabs();
+        $("#dialogResultadoDonacion").dialog({ title: "Resultado donación",
+            modal: true,
+            autoOpen: false,
+            minHeight: 150,
+            minWidth: 400,
+            buttons: { "Aceptar": function () { $(this).dialog("close"); } }
+        });
+        //$("#button").button();
+
+        $("#btnDonar").click(function () {
+            var idsNecesidades = new Array();
+            $("#tblProyectos input[type='checkbox']").each(function (i, element) {
+                var $element = $(element);
+                if ($element.attr("checked")) {
+                    idsNecesidades.push($element.attr("id").substring($element.attr("id").indexOf("_") + 1));
+                }
+            });
+            TAEM.IAPIService.CrearDonacion(idsNecesidades, function () {
+                mensajeDonacion("Su donación ha sido ingresada. Póngase en contacto con el beneficiario para coordinar la entrega. Gracias!");
+            }, function () {
+                mensajeDonacion("No se ha podido concretar la donación.");
+            })
+        })
+    });
+</script>
+
+<div id="tabsFichaColegio">
+    <ul>
+        <li><a href="#tabFicha">Ficha</a></li>
+        <li><a href="/Formulario/ResumenSimce/@Model.Lugar.ID/2">Simce</a></li>
+        <li><a href="/Establecimientos/EvalDocente/@Model.Lugar.ID">Evaluaci&oacute;n Docente</a></li>
+        <li><a href="#tabHistorias">Historias de éxito</a></li>
+    </ul>
+    <div id="tabFicha">
+        <h3>Datos del colegio</h3>
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td>@Model.Lugar.Nombre</td>
+            </tr>
+            
+            <tr>
+                <td>Dependencia:</td>
+                <td>@Model.DependenciaEscuela.Dependencia.Nombre</td>
+            </tr>
+
+         @*   <tr>
+                <td>Tipos de enseñanzas :</td>
+                <td></td>
+            </tr>
+            *@
+
+            @for (int i = 0; i < Model.TiposEnseñanzas.Count; i++)
+            {
+                if(i == 0)
+                {
+                 <tr>
+                    <td>Tipos de enseñanzas :</td>
+                    <td>@Model.TiposEnseñanzas[i].NombreTipoEnsenanza</td>
+                </tr>   
+                }
+                else
+                {
+                    
+                    <tr>
+                        <td></td>
+                        <td>@Model.TiposEnseñanzas[i].NombreTipoEnsenanza</td>
+                    </tr>
+                }
+            }
+            
+            @*@foreach (TipoEnsenanza tipoEnsenanza in Model.TiposEnseñanzas)
+            {
+                <tr>
+                    <td></td>
+                    <td>@tipoEnsenanza.NombreTipoEnsenanza</td>
+                </tr>
+            }*@
+            
+            @*<tr>
+                <td>Dirección:</td>
+                <td>@Model.Lugar.Posicion.</td>
+            </tr>*@
+        </table>
+        @if (Model.Proyectos != null && Model.Proyectos.Count > 0)
+        {
+        <h3>Proyectos</h3>
+        <p>Marque los checks según las donaciones que desee realizar</p><br />
+        <table id="tblProyectos" class="ficha" style="width: 100%;">
+            @foreach (Proyecto proyecto in Model.Proyectos)
+            {
+            <tr>
+                <td colspan="2" style="font-weight: bold;">@proyecto.Nombre</td>
+            </tr>
+            <tr>
+                <td style="width: 30%;">Descripción</td>
+                <td style="width: 70%;">@proyecto.Descripcion</td>
+            </tr>
+            <tr>
+                <td>Responsable</td>
+                <td>@proyecto.PersonaResponsable.Nombres</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-bottom: 20px;">
+                    @foreach (Necesidad necesidad in proyecto.Necesidades)
+                    {
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <td style="width: 30%;">Necesidad</td>
+                                    <td style="width: 40%;">Descripción</td>
+                                    <td style="width: 30%;">Donar</td>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>@necesidad.Nombre</td>
+                                <td>@necesidad.Descripcion</td>
+                                <td><input type="checkbox" id="@string.Format("chkNecesidad_{0}", necesidad.ID)" /></td>
+                            </tr>
+                        </table>
+                    }
+                </td>
+            </tr>
+            }
+        </table>
+        <p>
+            Al continuar, se enviará un correo al donante y al beneficiario para que coordinen la entrega de la donación.
+        </p>
+        <button id="btnDonar" type="button" class="buttonBlue">Donar</button>
+        }
+    </div>
+    <div id="tabHistorias">
+        @if (Model.Historias != null && Model.Historias.Count > 0)
+        {
+            foreach (Historia historia in Model.Historias)
+            {
+                <h3>@historia.Titulo</h3>
+               @*<div class="fb-comments" data-href="http://www.tuayudamiayuda.cl/" data-num-posts="2" data-width="300"></div>*@
+                <img src="@historia.ImagenUrl" alt="@historia.Titulo" />
+                <p>@historia.Descripcion</p>
+                <iframe width="560" height="315" src="@historia.VideoUrl" frameborder="0" allowfullscreen></iframe>
+                @*<div class="fb-comments" data-href="http://www.tuayudamiayuda.cl/" data-num-posts="2" data-width="300"></div>*@
+            }
+        }
+        else
+        {
+            <h3>Mi título</h3>
+            <img src="http://desarrollandoamerica.org/wp-content/themes/element/assets/images/logo2.png" alt="Mi título" />
+            <p>Prueba.. Esto es una descripción</p>
+            <iframe width="560" height="315" src="http://www.youtube.com/embed/iNJ99SLRtVQ" frameborder="0" allowfullscreen></iframe>
+        }
+    </div>
+</div>
+<div id="dialogResultadoDonacion" style="display: none;">
+    <div id="msgResultadoDonacion">
+    </div>
+</div>

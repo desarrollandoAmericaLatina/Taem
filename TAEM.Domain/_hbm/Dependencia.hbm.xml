@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="Carga"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="Dependencia" table="Dependencia">
+    <id name="IDDependencia" type="System.Int32" column="idDependencia" unsaved-value="0">
+    </id>
+    <property name="Nombre" type="System.String" length="100"/>
+    <bag name="EscuelasDependientes" cascade="all-delete-orphan">
+      <key column="idDependencia"/>
+      <one-to-many class="DependenciaEscuela"/>
+    </bag>
+  </class>
+</hibernate-mapping>

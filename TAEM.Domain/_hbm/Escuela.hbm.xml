@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="dbo"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+	<subclass name="Escuela" extends="Lugar" discriminator-value="1">
+    <property name="RDB" type="System.Int32"/>
+	</subclass>
+</hibernate-mapping>

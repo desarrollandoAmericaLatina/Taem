@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" schema="Carga"
+	namespace="TAEM.Domain" assembly="TAEM.Domain">
+  <class name="DependenciaEscuela" table="DependenciaEscuela">
+    <id name="RBD" type="System.Int32" column="RBD" unsaved-value="0">
+    </id>
+    <many-to-one name="Dependencia" column="idDependencia" class="TAEM.Domain.Dependencia" />
+  </class>
+</hibernate-mapping>
